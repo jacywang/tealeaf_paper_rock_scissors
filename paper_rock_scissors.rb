@@ -5,7 +5,7 @@ def print_out_result(your_pick, computer_pick)
   if your_pick == computer_pick
     puts "It's a tie."
   elsif your_pick == 'P' && computer_pick == 'R'
-    puts "Paper wraps rock. \n You win!"
+    puts "Paper wraps rock. \nYou won!"
   elsif your_pick == 'P' && computer_pick == 'S'
     puts "Scissors cut paper. \nComputer won!"
   elsif your_pick == 'R' && computer_pick == 'P'
