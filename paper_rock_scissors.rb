@@ -1,5 +1,39 @@
-def paper_rock_scissors
+def print_out_result(your_pick, computer_pick)
+  reference = { 'P'=> 'Paper', 'R'=> 'Rock', 'S'=> 'Scissors'}
+
+  if your_pick == computer_pick
+    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
+    puts "It's a tie."
+  elsif your_pick == 'P' && computer_pick == 'R'
+    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
+    puts "Paper wraps rock. \n You win!"
+  elsif your_pick == 'P' && computer_pick == 'S'
+    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
+    puts "Scissors cut paper. \nComputer won!"
+  elsif your_pick == 'R' && computer_pick == 'P'
+    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
+    puts "Paper wraps rock. \nComputer won!"
+  elsif your_pick == 'R' && computer_pick == 'S'
+    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
+    puts "Rock destroys scissors. \nYou won!"
+  elsif your_pick == 'S' && computer_pick == 'R'
+    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
+    puts "Rock destroys scissors. \nComputer won!"
+  elsif your_pick == 'S' && computer_pick == 'P'
+    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
+    puts "Scissors cut paper. \nYou won!"
+  end
+end
+
+def play_again
+  puts "Play again? (Y/N)"
+  play_again = gets.chomp.upcase
+  play_game if play_again == 'Y'
+end
+
+def play_game
   puts "Choose one: (P/R/S)"
+  
   your_pick = gets.chomp.upcase
   while !(your_pick =~ /\A[PRS]\z/)
     puts "Choose one: (P/R/S)"
@@ -7,63 +41,11 @@ def paper_rock_scissors
   end
 
   computer_pick = ['P', 'R', 'S'].sample
-  
-  if your_pick == 'P'
-    if computer_pick == 'P'
-      puts "You picked Paper and computer picked Paper."
-      puts "It's a tie."
-      play_again
-    elsif computer_pick == 'R'
-      puts "You picked Paper and computer picked Rock."
-      puts "Paper wraps Rock!"
-      puts "You won!"
-      play_again
-    else 
-      puts "You picked Paper and computer picked Scissors."
-      puts "Scissors cut paper!"
-      puts "Computer won!"
-      play_again
-    end
-  elsif your_pick == 'R'
-    if computer_pick == 'R'
-      puts "You picked Rock and computer picked Rock."
-      puts "It's a tie."
-      play_again
-    elsif computer_pick == 'P'
-      puts "You picked Rock and computer picked Paper."
-      puts "Paper wraps Rock!"
-      puts "Computer won!"
-      play_again
-    else 
-      puts "You picked Rock and computer picked Scissors."
-      puts "Rock destroys Scissors!"
-      puts "You won!"
-      play_again
-    end
-  else 
-    if computer_pick == 'S'
-      puts "You picked Scissors and computer picked Scissors."
-      puts "It's a tie."
-      play_again
-    elsif computer_pick == 'P'
-      puts "You picked Scissors and computer picked Paper."
-      puts "Scissors cut paper!"
-      puts "You won!"
-      play_again
-    else 
-      puts "You picked Scissors and computer picked Rock."
-      puts "Rock destroys Scissors!"
-      puts "Computer won!"
-      play_again
-    end
-  end
-end
 
-def play_again
-  puts "Play again? (Y/N)"
-  play_again = gets.chomp.upcase
-  paper_rock_scissors if play_again == 'Y'
+  print_out_result(your_pick,computer_pick)
+
+  play_again
 end
 
 puts "Play Paper Rock Scissors!"
-paper_rock_scissors
+play_game
