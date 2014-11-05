@@ -1,26 +1,20 @@
 def print_out_result(your_pick, computer_pick)
   reference = { 'P'=> 'Paper', 'R'=> 'Rock', 'S'=> 'Scissors'}
+  puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}."
 
   if your_pick == computer_pick
-    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
     puts "It's a tie."
   elsif your_pick == 'P' && computer_pick == 'R'
-    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
     puts "Paper wraps rock. \n You win!"
   elsif your_pick == 'P' && computer_pick == 'S'
-    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
     puts "Scissors cut paper. \nComputer won!"
   elsif your_pick == 'R' && computer_pick == 'P'
-    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
     puts "Paper wraps rock. \nComputer won!"
   elsif your_pick == 'R' && computer_pick == 'S'
-    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
     puts "Rock destroys scissors. \nYou won!"
   elsif your_pick == 'S' && computer_pick == 'R'
-    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
     puts "Rock destroys scissors. \nComputer won!"
   elsif your_pick == 'S' && computer_pick == 'P'
-    puts "You picked #{reference[your_pick]} and computer picked #{reference[computer_pick]}"
     puts "Scissors cut paper. \nYou won!"
   end
 end
